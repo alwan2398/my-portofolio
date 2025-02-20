@@ -2,6 +2,7 @@ import React from "react";
 import Wrapper from "../utils/wrapper";
 import Hero from "../views/Hero";
 import About from "../views/About";
+import Experience from "../views/Experience";
 
 const HomeSection = () => {
   return (
@@ -11,6 +12,9 @@ const HomeSection = () => {
       </Wrapper>
       <Wrapper>
         <About />
+      </Wrapper>
+      <Wrapper>
+        <Experience />
       </Wrapper>
     </div>
   );

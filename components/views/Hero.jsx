@@ -108,7 +108,7 @@ const Hero = () => {
                   word
                 )}
                 &nbsp;
-                {word === "Yang" && <br />}
+                {/* {word === "Yang" && <br />} */}
               </motion.span>
             ))}
         </motion.h2>
