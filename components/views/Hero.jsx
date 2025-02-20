@@ -5,7 +5,8 @@ import Image from "next/image";
 import Icons from "../ui/icons";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ChevronRightIcon } from "lucide-react";
+import { ChevronRightIcon, PlusIcon } from "lucide-react";
+import { NumberTicker } from "../magicui/number-ticker";
 
 const Hero = () => {
   return (
@@ -32,12 +33,12 @@ const Hero = () => {
       >
         <div className="rounded-full bg-[#131316] flex items-center justify-center size-10 overflow-visible">
           <span className="text-xl wave">
-            <Icons.wave className="size-8 -rotate-[30deg] group-hover:scale-110 transition-all duration-300" />
+            <Icons.wave className="size-6 -rotate-[30deg] group-hover:scale-110 transition-all duration-300" />
           </span>
         </div>
         <div className="flex flex-col gap-2 flex-shrink-0">
           <p className="text-sm font-medium text-foreground/70">
-            Muhamad Alwan - Frontend Developer
+            Alwan | Frontend Developer
           </p>
         </div>
       </AnimationContainer>
@@ -78,7 +79,7 @@ const Hero = () => {
           </div>
         </AnimationContainer>
         <motion.h2 className="text-balance !leading-snug">
-          {"Building Digital Solutions that Make a Difference"
+          {"Membangun Solusi Digital Yang Modern, User Friendly."
             .split(" ")
             .map((word, index) => (
               <motion.span
@@ -107,7 +108,7 @@ const Hero = () => {
                   word
                 )}
                 &nbsp;
-                {word === "that" && <br />}
+                {word === "Yang" && <br />}
               </motion.span>
             ))}
         </motion.h2>
@@ -119,11 +120,11 @@ const Hero = () => {
         className="relative mt-6 flex flex-col items-center justify-center gap-y-6 max-w-3xl mx-auto text-center"
       >
         <p className="text-base text-muted-foreground !leading-relaxed">
-          Your one-stop solution for professional web development and design.{" "}
+          Solusi untuk pengembangan website atau aplikasi modern.{" "}
           <span className="inline-blocklg:inline-block">
-            Whether you need a stunning website, an e-commerce platform, or a
-            custom web application, I provide end-to-end solutions that help
-            your business stand out in the digital landscape.
+            membangun situs web yang menakjubkan, platform e-commerce, atau
+            aplikasi web khusus, dengan fokus pada pengalaman user experience
+            (UX) yang memukau dengan pengoptimalan performa yang baik.
           </span>
           {/* I&apos;m a software developer and designer who specializes in creating innovative and user-friendly websites. <span className="hidden lg:inline-block">With a keen eye for design and a focus on performance,</span> I&apos;m dedicated to delivering high-quality digital experiences that drive business growth. */}
         </p>
@@ -145,7 +146,7 @@ const Hero = () => {
         <Link href="#contact">
           <button className="relative py-3 text-[15px] tracking-wider font-medium overflow-hidden rounded-lg bg-indigo-600 text-white transition-all duration-300 group btn-primary flex items-center justify-center w-52 h-auto">
             <span className="relative z-10 font-medium font-heading">
-              Let&apos;s Work Together
+              Siap Berkolaborasi
             </span>
             <span className="flex items-center justify-center scale-x-0 group-hover:scale-x-100 transition-all duration-300 size-0 group-hover:size-5 ml-1">
               <ChevronRightIcon className="size-5" />
@@ -153,6 +154,41 @@ const Hero = () => {
             <div className="absolute inset-y-0 -left-full w-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-all duration-500 ease-in-out group-hover:translate-x-[200%] group-hover:duration-1000"></div>
           </button>
         </Link>
+      </AnimationContainer>
+
+      <AnimationContainer
+        delay={0.2}
+        animation="slide-up"
+        className="flex flex-col items-center justify-center my-32"
+      >
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 py-10 w-full lg:max-w-screen-md">
+          {[10, 1, 8, 5].map((value, index) => (
+            <AnimationContainer
+              key={index}
+              animation="scale"
+              delay={0.5 + index * 0.1}
+              className="flex flex-col items-center justify-center p-6 rounded-lg lg:rounded-3xl bg-[#131316] hover:bg-[#131316]/80 transition-all duration-300"
+            >
+              <div className="flex flex-col items-center justify-center">
+                <div className="flex items-center justify-center">
+                  <NumberTicker
+                    value={value}
+                    className="text-4xl lg:text-5xl font-medium text-foreground/80"
+                  />
+                  <span className="">
+                    <PlusIcon className="size-6 text-indigo-600" />
+                  </span>
+                </div>
+              </div>
+              <p className="text-base text-muted-foreground text-center mt-4">
+                {index === 0 && "Project Terselesaikan"}
+                {index === 1 && "Berpengalaman"}
+                {index === 2 && "Berkolaborasi"}
+                {index === 3 && "FrameWork & Library"}
+              </p>
+            </AnimationContainer>
+          ))}
+        </div>
       </AnimationContainer>
     </div>
   );

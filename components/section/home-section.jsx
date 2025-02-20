@@ -9,6 +9,9 @@ const HomeSection = () => {
       <Wrapper className={"lg:max-w-screen-lg"}>
         <Hero />
       </Wrapper>
+      <Wrapper>
+        <About />
+      </Wrapper>
     </div>
   );
 };
