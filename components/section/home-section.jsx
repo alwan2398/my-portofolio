@@ -3,6 +3,8 @@ import Wrapper from "../utils/wrapper";
 import Hero from "../views/Hero";
 import About from "../views/About";
 import Experience from "../views/Experience";
+import ProjectCard from "../views/ProjectCard";
+import Projects from "../views/Projects";
 
 const HomeSection = () => {
   return (
@@ -15,6 +17,9 @@ const HomeSection = () => {
       </Wrapper>
       <Wrapper>
         <Experience />
+      </Wrapper>
+      <Wrapper>
+        <Projects />
       </Wrapper>
     </div>
   );
