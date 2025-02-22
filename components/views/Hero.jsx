@@ -79,7 +79,7 @@ const Hero = () => {
           </div>
         </AnimationContainer>
         <motion.h2 className="text-balance !leading-snug">
-          {"Membangun Solusi Digital Yang Modern, User Friendly."
+          {"Membangun Solusi Digital Yang Modern & User Friendly."
             .split(" ")
             .map((word, index) => (
               <motion.span
@@ -108,7 +108,7 @@ const Hero = () => {
                   word
                 )}
                 &nbsp;
-                {/* {word === "Yang" && <br />} */}
+                {word === "Yang" && <br />}
               </motion.span>
             ))}
         </motion.h2>
@@ -162,7 +162,7 @@ const Hero = () => {
         className="flex flex-col items-center justify-center my-32"
       >
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 py-10 w-full lg:max-w-screen-md">
-          {[10, 1, 8, 5].map((value, index) => (
+          {[10, 2, 8, 5].map((value, index) => (
             <AnimationContainer
               key={index}
               animation="scale"

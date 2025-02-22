@@ -8,7 +8,7 @@ const Experience = () => {
         <TimeLineItem active>
           <TimeLineItem.Title>
             <span className="font-medium transition-all hover:text-white hover:underline hover:underline-offset-2">
-              Software Developer (remote job)
+              Software Developer (Freelance)
             </span>{" "}
             • <span className="text-neutral-200">Aug 2023 - Sekarang</span>
           </TimeLineItem.Title>
@@ -24,12 +24,12 @@ const Experience = () => {
             <span className="font-medium transition-all hover:text-white hover:underline hover:underline-offset-2">
               UI / UX Designer (Internship)
             </span>{" "}
-            • <span className="text-neutral-200">March 2023 - Aug 2023</span>
+            • <span className="text-neutral-200">March 2022 - Aug 2022</span>
           </TimeLineItem.Title>
           <TimeLineItem.Description>
             Membuat Solusi keseimbangan pada antarmuka pengguna dan desain yang
-            fungsional dengan menggunakan Figma dan membuat protype dengan Figma
-            pada aplikasi E-Open.
+            fungsional dan membuat protype dengan Figma untuk proyek aplikasi
+            seluler E-Open.
           </TimeLineItem.Description>
         </TimeLineItem>
       </TimeLine>

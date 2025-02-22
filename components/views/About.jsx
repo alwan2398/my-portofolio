@@ -20,8 +20,7 @@ const About = () => {
       >
         <div className="w-full flex items-center justify-center">
           <p className="text-base md:text-lg text-justify w-full">
-            Saya adalah seorang Software Developer dengan pengalaman lebih dari
-            Saya seorang Software Developer, dengan pengalaman lebih dari 1
+            Saya seorang Software Developer, dengan pengalaman lebih dari 2
             tahun yang berdedikasi dalam pengembangan aplikasi web dan mobile.
             Saya sangat excited untuk menciptakan pengalaman digital yang luar
             biasa, dengan menghadirkan solusi yang inovatif dan berkualitas
@@ -30,7 +29,7 @@ const About = () => {
             menciptakan solusi yang tidak hanya bekerja dengan sempurna tetapi
             juga menyenangkan pengguna. Saya berspesialisasi dalam membangun
             aplikasi web responsif dengan React dan menciptakan pengalaman
-            seluler lintas platform menggunakan React Native. Saat saya tidak
+            aplikasi seluler platform menggunakan React Native. Saat saya tidak
             sedang membuat kode, Anda akan menemukan saya mendesain antarmuka
             pengguna yang ramping di Figma, selalu berusaha menjembatani
             kesenjangan antara fungsionalitas dan desain yang indah. Mari kita
