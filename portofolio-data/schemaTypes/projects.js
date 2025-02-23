@@ -30,5 +30,15 @@ export default {
         hotspot: true,
       },
     },
+    {
+      name: 'githubUrl',
+      title: 'GitHub URL',
+      type: 'string',
+    },
+    {
+      name: 'demoUrl',
+      title: 'Demo URL',
+      type: 'string',
+    },
   ],
 }

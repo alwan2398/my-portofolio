@@ -1,15 +1,14 @@
 "use client";
 
-import { newProjects } from "@/constant/Query";
 import client from "@/lib/sanity";
 import React, { useState, useEffect } from "react";
 import { MagicCard } from "../magicui/magic-card";
-import { Card, CardDescription, CardTitle } from "../ui/card";
 import { motion } from "framer-motion";
 import { Button } from "../ui/button";
 import Link from "next/link";
 import { ArrowRightIcon } from "lucide-react";
 import ProjectCard from "./ProjectCard";
+import { getNewProjects } from "@/constant/Query";
 
 const Projects = () => {
   const [loading, setLoading] = useState(true);
@@ -18,7 +17,7 @@ const Projects = () => {
   useEffect(() => {
     const fetchProject = async () => {
       try {
-        const data = await client.fetch(newProjects);
+        const data = await client.fetch(getNewProjects);
         setProjects(data);
       } catch (error) {
         console.error("Error fetching projects:", error);
@@ -69,7 +68,7 @@ const Projects = () => {
       <div className="mt-6">
         <Link href="/projects">
           <Button variant="secondary" size="sm">
-            View more
+            Project Lainnya
             <ArrowRightIcon className="size-4 ml-1.5" />
           </Button>
         </Link>
