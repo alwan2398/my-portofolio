@@ -4,7 +4,7 @@ export const SKILLS = [
     stack: ["HTML", "CSS", "JavaScript", "TypeScript", "PHP"],
   },
   {
-    title: "Frontend Frameworks",
+    title: "Frontend Teknologi",
     stack: ["React", "Next.js", "React Native", "Vite", "Expo"],
   },
   {
@@ -38,7 +38,7 @@ export const SKILLS = [
     ],
   },
   {
-    title: "Databases",
+    title: "Database Teknologi",
     stack: [
       "MongoDB",
       "Firebase",
@@ -67,7 +67,7 @@ export const SKILLS = [
     ],
   },
   {
-    title: "Sedang dipelajari",
+    title: "Sedang mendalami",
     stack: ["VueJS", "Svelte", "Python", "Go", "Laravel v11", "AI Api"],
   },
 ];

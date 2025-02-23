@@ -5,6 +5,8 @@ import About from "../views/About";
 import Experience from "../views/Experience";
 import Projects from "../views/Projects";
 import Skiils from "../views/Skiils";
+import Faqs from "../views/Faqs";
+import Contact from "../views/Contact";
 
 const HomeSection = () => {
   return (
@@ -23,6 +25,12 @@ const HomeSection = () => {
       </Wrapper>
       <Wrapper>
         <Skiils />
+      </Wrapper>
+      <Wrapper>
+        <Faqs />
+      </Wrapper>
+      <Wrapper>
+        <Contact />
       </Wrapper>
     </div>
   );
