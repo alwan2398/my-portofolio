@@ -3,8 +3,8 @@ import Wrapper from "../utils/wrapper";
 import Hero from "../views/Hero";
 import About from "../views/About";
 import Experience from "../views/Experience";
-import ProjectCard from "../views/ProjectCard";
 import Projects from "../views/Projects";
+import Skiils from "../views/Skiils";
 
 const HomeSection = () => {
   return (
@@ -20,6 +20,9 @@ const HomeSection = () => {
       </Wrapper>
       <Wrapper>
         <Projects />
+      </Wrapper>
+      <Wrapper>
+        <Skiils />
       </Wrapper>
     </div>
   );
