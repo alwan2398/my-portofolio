@@ -21,17 +21,10 @@ const ProjectCard = ({ project }) => {
           {project.description}
         </p>
 
-        <div className="flex gap-x-4 mt-4">
+        <div className="flex w-full mt-4">
           <Link href={`${project.githubUrl}`} target="_blank">
             <Button variant="outline" size="sm">
-              <Icons.github className="size-4 mr-2" />
-              GitHub
-            </Button>
-          </Link>
-          <Link href={`${project.demoUrl}`} target="_blank">
-            <Button variant="outline" size="sm">
-              <ExternalLinkIcon className="size-4 mr-2" />
-              Demo Site
+              Detail Project
             </Button>
           </Link>
         </div>
