@@ -23,3 +23,10 @@ export const getDetailProject = `*[_type == "projects" && slug.current == $slug]
       "icon": icon.asset->url
     }
   }`;
+
+export const getAllProjects = `*[_type == "projects"] | order(_updatedAt desc){
+    title,
+    description,
+    "image": image.asset->url,
+    "slug": slug.current
+  }`;

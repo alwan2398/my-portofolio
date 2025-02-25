@@ -55,7 +55,7 @@ const DetailProject = ({ project }) => {
           </div>
         ))}
 
-        <div className="grid grid-cols-2 gap-4 mt-4 p-2">
+        <div className="grid grid-cols-2 gap-4 mt-4">
           <Link
             href={project.githubUrl}
             target="_blank"

@@ -15,7 +15,7 @@ const ProjectCard = ({ project }) => {
           height={1024}
           className="w-full h-auto object-cover rounded-t-xl"
         />
-        <h2 className="text-lg font-medium">{project.title}</h2>
+        <h2 className="text-lg font-medium line-clamp-1">{project.title}</h2>
         <p className="text-sm text-foreground/80 mt-2 line-clamp-2">
           {project.description}
         </p>
