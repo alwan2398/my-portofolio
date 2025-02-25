@@ -2,8 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { Button } from "../ui/button";
-import Icons from "../ui/icons";
-import { ExternalLinkIcon } from "lucide-react";
+import { AppWindowMac } from "lucide-react";
 
 const ProjectCard = ({ project }) => {
   return (
@@ -22,8 +21,9 @@ const ProjectCard = ({ project }) => {
         </p>
 
         <div className="flex w-full mt-4">
-          <Link href={`/${project.slug}`} target="_blank">
+          <Link href={`/${project.slug}`}>
             <Button variant="outline" size="sm">
+              <AppWindowMac className="size-4 mr-2" />
               Detail Project
             </Button>
           </Link>

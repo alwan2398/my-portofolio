@@ -40,5 +40,32 @@ export default {
       title: 'Demo URL',
       type: 'string',
     },
+    {
+      name: 'feature',
+      title: 'Features',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          name: 'featureItem',
+          title: 'Feature Item',
+          fields: [
+            {
+              name: 'title',
+              title: 'Feature Title',
+              type: 'string',
+            },
+            {
+              name: 'icon',
+              title: 'Icon',
+              type: 'image',
+              options: {
+                hotspot: true,
+              },
+            },
+          ],
+        },
+      ],
+    },
   ],
 }
