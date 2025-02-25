@@ -6,3 +6,9 @@ export const getNewProjects = `*[_type == "projects"]{
     githubUrl,
     demoUrl
   }`;
+
+export const getRiview = `*[_type == "riview"]{
+  name,
+  rating,
+  message
+  }`;

@@ -1,3 +1,4 @@
 import projects from './projects'
+import riview from './riview'
 
-export const schemaTypes = [projects]
+export const schemaTypes = [projects, riview]

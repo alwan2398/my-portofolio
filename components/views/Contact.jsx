@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import AnimationContainer from "../utils/animation-container";
 import Link from "next/link";
 import { Button } from "../ui/button";
@@ -16,11 +16,21 @@ import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { cn } from "@/lib/utils";
+import emailjs from "@emailjs/browser";
+
+const formSchema = z.object({
+  name: z.string().min(2, { message: "Nama wajib diisi" }),
+  email: z.string().email({ message: "Email tidak valid" }),
+  phone: z.string().min(10, { message: "Nomor handphone tidak valid" }),
+  message: z.string().min(3, { message: "Pesan wajib diisi" }),
+});
 
 const Contact = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSent, setIsSent] = useState(false);
+
   const form = useForm({
-    resolver: zodResolver(),
+    resolver: zodResolver(formSchema),
     mode: "onBlur",
     defaultValues: {
       name: "",
@@ -29,20 +39,45 @@ const Contact = () => {
       message: "",
     },
   });
+
+  const handleSubmit = async (data) => {
+    setIsLoading(true);
+
+    try {
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+        {
+          from_name: data.name,
+          from_email: data.email,
+          phone_number: data.phone,
+          message: data.message,
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+      );
+
+      form.reset();
+      setIsSent(true);
+      setTimeout(() => setIsSent(false), 3000);
+    } catch (error) {
+      console.error("Error mengirim email:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <div id="contact" className="w-full relative pt-10 pb-40 z-40">
       <AnimationContainer animation="slide-up" delay={0.1}>
-        <div className="w-full">
-          <h2 className="text-2xl lg:text-3xl font-medium text-left w-full">
-            Get In Touch
-          </h2>
-        </div>
+        <h2 className="text-2xl lg:text-3xl font-medium text-left w-full">
+          Mari Berkolaborasi
+        </h2>
       </AnimationContainer>
 
       <div className="flex flex-col items-center justify-center gap-5 pt-10 w-full">
         <div className="flex flex-col items-center justify-center w-full gap-5 lg:flex-row">
           <Link
-            href="mailto:sihasaneshreyas@gmail.com"
+            href="mailto:muhammadalwan3220@gmail.com"
             className="flex-[0.5] w-full lg:w-auto"
           >
             <Button
@@ -52,12 +87,12 @@ const Contact = () => {
             >
               <h6 className="text-base font-medium">Email</h6>
               <p className="mt-2 text-base text-foreground/70">
-                sihasaneshreyas@gmail.com
+                muhammadalwan3220@gmail.com
               </p>
             </Button>
           </Link>
           <Link
-            href="https://wa.link/c8re0h"
+            href="https://wa.link/9zx4bv"
             className="flex-[0.5] w-full lg:w-auto"
           >
             <Button
@@ -65,9 +100,9 @@ const Contact = () => {
               variant="outline"
               className="flex-col items-start w-full h-auto p-5 hover:scale-100"
             >
-              <h6 className="text-base font-medium">Phone</h6>
+              <h6 className="text-base font-medium">Whatsapp</h6>
               <p className="mt-2 text-base text-foreground/70">
-                +91 932 235 6392
+                +62 859 0435 1897
               </p>
             </Button>
           </Link>
@@ -75,8 +110,8 @@ const Contact = () => {
 
         <Form {...form}>
           <form
-            onSubmit={form.handleSubmit((e) => handleSubmit(e))}
-            className="flex flex-col items-center justify-center w-full space-y-5"
+            onSubmit={form.handleSubmit(handleSubmit)}
+            className="w-full space-y-5"
           >
             <AnimationContainer
               animation="slide-up"
@@ -91,64 +126,40 @@ const Contact = () => {
                     <FormControl>
                       <Input
                         {...field}
-                        // disabled={isLoading}
-                        type="text"
-                        placeholder="Name"
-                        autoComplete="off"
-                        className="h-12 px-5 capitalize outline-none rounded-lg hover:border-blue-500"
+                        disabled={isLoading}
+                        placeholder="Nama"
+                        className="h-12 px-5 rounded-lg hover:border-indigo-500"
                       />
                     </FormControl>
                     <FormMessage>
-                      <motion.span
-                        initial={{ opacity: 0, y: 0 }}
-                        animate={{ opacity: 1, y: 1 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        {form.formState.errors.name &&
-                          form.formState.errors.name.message}
-                      </motion.span>
+                      {form.formState.errors.name?.message}
                     </FormMessage>
                   </FormItem>
                 )}
               />
             </AnimationContainer>
+
             <AnimationContainer
               animation="slide-up"
               delay={0.3}
               className="w-full"
             >
-              <div className="flex flex-col items-center justify-center w-full gap-4 md:flex-row">
+              <div className="flex flex-col md:flex-row gap-4">
                 <FormField
                   control={form.control}
                   name="email"
                   render={({ field }) => (
-                    <FormItem
-                      className={cn(
-                        "w-full mb-0",
-                        form.formState.errors.phone && "mb-5"
-                      )}
-                    >
+                    <FormItem className="w-full">
                       <FormControl>
                         <Input
                           {...field}
-                          // disabled={isLoading}
-                          required
-                          type="email"
-                          name="email"
+                          disabled={isLoading}
                           placeholder="Email"
-                          autoComplete="off"
-                          className="h-12 px-5 outline-none rounded-lg hover:border-blue-500"
+                          className="h-12 px-5 rounded-lg hover:border-indigo-500"
                         />
                       </FormControl>
                       <FormMessage>
-                        <motion.span
-                          initial={{ opacity: 0, y: 0 }}
-                          animate={{ opacity: 1, y: 1 }}
-                          transition={{ duration: 0.2 }}
-                        >
-                          {form.formState.errors.email &&
-                            form.formState.errors.email.message}
-                        </motion.span>
+                        {form.formState.errors.email?.message}
                       </FormMessage>
                     </FormItem>
                   )}
@@ -157,39 +168,24 @@ const Contact = () => {
                   control={form.control}
                   name="phone"
                   render={({ field }) => (
-                    <FormItem
-                      className={cn(
-                        "w-full mb-0",
-                        form.formState.errors.email && "mb-5"
-                      )}
-                    >
+                    <FormItem className="w-full">
                       <FormControl>
                         <Input
                           {...field}
-                          //   // disabled={isLoading}
-                          required
-                          type="tel"
-                          name="phone"
-                          placeholder="Phone"
-                          autoComplete="off"
-                          className="h-12 px-5 outline-none rounded-lg hover:border-blue-500"
+                          disabled={isLoading}
+                          placeholder="Nomor HP"
+                          className="h-12 px-5 rounded-lg hover:border-indigo-500"
                         />
                       </FormControl>
                       <FormMessage>
-                        <motion.span
-                          initial={{ opacity: 0, y: 0 }}
-                          animate={{ opacity: 1, y: 1 }}
-                          transition={{ duration: 0.2 }}
-                        >
-                          {form.formState.errors.phone &&
-                            form.formState.errors.phone.message}
-                        </motion.span>
+                        {form.formState.errors.phone?.message}
                       </FormMessage>
                     </FormItem>
                   )}
                 />
               </div>
             </AnimationContainer>
+
             <AnimationContainer
               animation="slide-up"
               delay={0.4}
@@ -203,42 +199,32 @@ const Contact = () => {
                     <FormControl>
                       <Textarea
                         {...field}
-                        // // disabled={isLoading}
-                        required
+                        disabled={isLoading}
+                        placeholder="Pesan Anda..."
                         rows={5}
-                        name="message"
-                        placeholder="Message..."
-                        autoComplete="off"
-                        className="w-full p-5 outline-none resize-none rounded-lg hover:border-blue-500"
+                        className="w-full p-5 rounded-lg hover:border-indigo-500"
                       />
                     </FormControl>
                     <FormMessage>
-                      <motion.span
-                        initial={{ opacity: 0, y: 0 }}
-                        animate={{ opacity: 1, y: 1 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        {form.formState.errors.message &&
-                          form.formState.errors.message.message}
-                      </motion.span>
+                      {form.formState.errors.message?.message}
                     </FormMessage>
                   </FormItem>
                 )}
               />
             </AnimationContainer>
+
             <AnimationContainer
               animation="slide-up"
               delay={0.5}
               className="w-full"
             >
-              <div className="flex items-center justify-center w-full mx-auto">
-                <Button
-                //   isSent={isSent}
-                //   isLoading={isLoading}
-                //   setIsSent={setIsSent}
-                //   disabled={form.formState.disabled}
-                >
-                  Send
+              <div className="flex justify-center w-full">
+                <Button type="submit" disabled={isLoading || isSent}>
+                  {isLoading
+                    ? "Mengirim..."
+                    : isSent
+                      ? "Pesan Terkirim"
+                      : "Kirim Pesan"}
                 </Button>
               </div>
             </AnimationContainer>

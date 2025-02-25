@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body
         className={cn(
-          `${jakartaSans.className} dark min-h-screen bg-background text-foreground antialiased font-heading relative`
+          `${jakartaSans.className} dark min-h-screen bg-background antialiased relative`
         )}
       >
         <Navbar />

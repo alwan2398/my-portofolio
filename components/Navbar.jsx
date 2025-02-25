@@ -23,29 +23,24 @@ const Navbar = () => {
       social: {
         github: {
           name: "GitHub",
-          url: "https://github.com/Shreyas-29",
+          url: "https://github.com/alwan2398",
           icon: Icons.github,
         },
         linkedin: {
           name: "LinkedIn",
-          url: "https://linkedin.com/in/shreyas-sihasane-441b95238",
+          url: "https://www.linkedin.com/in/muhamad-alwan-sholeh-66ab7a330?originalSubdomain=id",
           icon: Icons.linkedin,
         },
-        youtube: {
-          name: "YouTube",
-          url: "https://www.youtube.com/channel/UCrqsZYcbNVO2F8FS-xIIiZg",
-          icon: Icons.youtube,
+        instagram: {
+          name: "Instagram",
+          url: "https://www.instagram.com/alwan.balweel/",
+          icon: Icons.instagram,
         },
         resume: {
           name: "Resume",
-          url: "/me.pdf",
+          url: "pdf/my-resume.pdf",
           icon: FileTextIcon,
         },
-        // coffe: {
-        //   name: "Buy me a coffee",
-        //   url: "https://www.buymeacoffee.com/shreyas29",
-        //   icon: Icons.coffeeInvert,
-        // },
       },
     },
   };

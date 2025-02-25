@@ -5,8 +5,8 @@ import About from "../views/About";
 import Experience from "../views/Experience";
 import Projects from "../views/Projects";
 import Skiils from "../views/Skiils";
-import Faqs from "../views/Faqs";
 import Contact from "../views/Contact";
+import Riviews from "../views/Riviews";
 
 const HomeSection = () => {
   return (
@@ -27,7 +27,7 @@ const HomeSection = () => {
         <Skiils />
       </Wrapper>
       <Wrapper>
-        <Faqs />
+        <Riviews />
       </Wrapper>
       <Wrapper>
         <Contact />
