@@ -53,7 +53,7 @@ const Contact = () => {
           phone_number: data.phone,
           message: data.message,
         },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "zwip8jo-wlOtXNV_y"
       );
 
       form.reset();
@@ -223,8 +223,8 @@ const Contact = () => {
                   {isLoading
                     ? "Mengirim..."
                     : isSent
-                      ? "Pesan Terkirim"
-                      : "Kirim Pesan"}
+                    ? "Pesan Terkirim"
+                    : "Kirim Pesan"}
                 </Button>
               </div>
             </AnimationContainer>

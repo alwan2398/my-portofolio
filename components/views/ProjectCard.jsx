@@ -22,7 +22,7 @@ const ProjectCard = ({ project }) => {
         </p>
 
         <div className="flex w-full mt-4">
-          <Link href={`${project.githubUrl}`} target="_blank">
+          <Link href={`/${project.slug}`} target="_blank">
             <Button variant="outline" size="sm">
               Detail Project
             </Button>
