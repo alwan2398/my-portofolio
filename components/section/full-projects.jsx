@@ -21,7 +21,7 @@ const FullProjects = ({ project }) => {
         {project.description}
       </p>
 
-      <div className="flex w-full mt-4">
+      <div className="flex w-full mt-5">
         <Link href={`/${project.slug}`}>
           <Button variant="outline" size="sm">
             <AppWindowMac className="size-4 mr-2" />
